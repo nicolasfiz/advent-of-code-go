@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	total := day1.Day1("./days/day1/input.txt")
+	total := day1.Day1Part2("./days/day1/input.txt")
 	fmt.Printf("Total: %d\n", total)
 }

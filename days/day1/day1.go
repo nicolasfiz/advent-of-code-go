@@ -11,11 +11,13 @@ func Day1(filePath string) int {
 	scanner, file := createScanner(filePath)
 	defer file.Close()
 
-	total := fileReader(scanner)
+	total := fileReader(scanner, lineReaderDay1)
 
 	return total
 
 }
+
+type LineReaderFunc func(string) int
 
 func createScanner(filePath string) (*bufio.Scanner, *os.File) {
 	content, error := os.Open(filePath)
@@ -29,7 +31,7 @@ func createScanner(filePath string) (*bufio.Scanner, *os.File) {
 	return scanner, content
 }
 
-func fileReader(scanner *bufio.Scanner) int {
+func fileReader(scanner *bufio.Scanner, lineReader LineReaderFunc) int {
 	var total int
 
 	for scanner.Scan() {
@@ -45,7 +47,7 @@ func fileReader(scanner *bufio.Scanner) int {
 	return total
 }
 
-func lineReader(line string) int {
+func lineReaderDay1(line string) int {
 	var firstNumber, lastNumber int
 
 	for _, word := range line {
