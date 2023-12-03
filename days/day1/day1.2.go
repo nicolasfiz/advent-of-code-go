@@ -42,7 +42,7 @@ func lineReaderDay2(line string) int {
 		if unicode.IsNumber(letter) {
 			number, error := strconv.Atoi(string(letter))
 			if error != nil {
-				log.Fatal("Could not convert into")
+				log.Fatal("Could not convert")
 			}
 			numbers = append(numbers, number)
 		}
